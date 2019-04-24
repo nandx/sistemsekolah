@@ -1,4 +1,4 @@
-package com.sistem.sekolah.entity.repository;
+package com.sistem.sekolah.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
