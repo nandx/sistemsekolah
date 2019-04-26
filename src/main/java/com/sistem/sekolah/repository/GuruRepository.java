@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.sistem.sekolah.entity.Guru;
 
 @Repository
-public interface GuruRepository extends JpaRepository<Guru, Long> {
+public interface GuruRepository extends JpaRepository<Guru, Integer> {
 
 }
