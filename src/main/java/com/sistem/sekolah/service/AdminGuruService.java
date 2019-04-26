@@ -18,4 +18,12 @@ public class AdminGuruService {
 		return guruRepository.findAll();
 	}
 
+	public void save(Guru guru) {
+		guruRepository.save(guru);
+	}
+
+	public Guru getGuru(int id) {
+		return guruRepository.getOne(id);
+	}
+
 }
