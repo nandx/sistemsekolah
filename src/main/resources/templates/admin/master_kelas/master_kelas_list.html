@@ -57,12 +57,12 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Master Guru</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Master Kelas</h6>
 						</div>
 
 						<div class="card-body">
 							<div>
-								<a th:href="@{/admin/guru/add}"
+								<a th:href="@{/admin/kelas/add}"
 									class="btn btn-primary btn-icon-split btn-sm"> <span
 									class="icon text-white-50"> <i class="fas fa-plus"></i>
 								</span> <span class="text">Add</span>
@@ -85,7 +85,7 @@
 										<tr th:each="kelas : ${list_kelas}">
 											<td th:text="${kelas.id}"></td>
 											<td th:text="${kelas.namaKelas}"></td>
-											<td><a href="#"
+											<td><a th:href="${'/admin/kelas/edit?idKelas='+kelas.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span
 													class="icon text-white-50"> <i
 														class="fas fa-info-circle"></i>
@@ -96,7 +96,6 @@
 												</span>
 											</a></td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>

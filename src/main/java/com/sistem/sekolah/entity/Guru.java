@@ -2,6 +2,8 @@ package com.sistem.sekolah.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +20,18 @@ public class Guru {
 
 	@Column(name = "nama_guru", length = 200)
 	private String namaGuru;
+	
+    @Enumerated(EnumType.STRING)
+    @Column(name="STATUS",length=20)
+    private Status status;
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public Integer getId() {
 		return id;

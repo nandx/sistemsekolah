@@ -57,49 +57,28 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Master Guru</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Add Pelajaran</h6>
 						</div>
 
 						<div class="card-body">
-							<div>
-								<a th:href="@{/admin/guru/add}"
-									class="btn btn-primary btn-icon-split btn-sm"> <span
-									class="icon text-white-50"> <i class="fas fa-plus"></i>
-								</span> <span class="text">Add</span>
-								</a>
-							</div>
+							<form class="user" th:action="@{/admin/pelajaran/save}" method="post"
+								th:object="${pelajaran}">
+								<div class="form-group">
+									<input type="hidden" th:field="*{id}"> <label>Nama
+										Pelajaran</label> <input type="text" th:field="*{namaPelajaran}"
+										class="form-control form-control-user" id="txt_namaKelas"
+										placeholder="Nama Pelajaran..">
+								</div>
+								<div>
+									<button class="btn btn-primary btn-user btn-block"
+										type="submit">Save</button>
+									<a href="" class="btn btn-secondary btn-user btn-block"> <span
+										class="text">Cancel</span>
+									</a>
+									<!-- 									<button class="btn btn-secondary btn-user btn-block">Cancel</button> -->
+								</div>
 
-							<div class="my-2"></div>
-
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>Nama Guru</th>
-											<th>Status</th>
-											<th>Action</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr th:each="guru : ${list_guru}">
-											<td th:text="${guru.namaGuru}"></td>
-											<td th:text="${guru.status}"></td>
-											<td><a th:href="${'/admin/guru/edit?idGuru='+guru.id}"
-												class="btn btn-primary btn-icon-split btn-sm"> <span
-													class="icon text-white-50"> <i
-														class="fas fa-info-circle"></i>
-												</span>
-											</a> <a href="#" class="btn btn-danger btn-icon-split btn-sm">
-													<span class="icon text-gray-600"> <i
-														class="fas fa-trash"></i>
-												</span>
-											</a></td>
-										</tr>
-
-									</tbody>
-								</table>
-							</div>
+							</form>
 						</div>
 					</div>
 
