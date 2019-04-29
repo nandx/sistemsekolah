@@ -57,12 +57,12 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Master Guru</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Master Kelas</h6>
 						</div>
 
 						<div class="card-body">
 							<div>
-								<a th:href="@{/admin/guru/add}"
+								<a th:href="@{/admin/pelajaran/add}"
 									class="btn btn-primary btn-icon-split btn-sm"> <span
 									class="icon text-white-50"> <i class="fas fa-plus"></i>
 								</span> <span class="text">Add</span>
@@ -76,16 +76,16 @@
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>Nama Guru</th>
-											<th>Status</th>
-											<th>Action</th>
+											<th>ID</th>
+											<th>Nama Pelajaran</th>
+											<th>ACTION</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="guru : ${list_guru}">
-											<td th:text="${guru.namaGuru}"></td>
-											<td th:text="${guru.status}"></td>
-											<td><a th:href="${'/admin/guru/edit?idGuru='+guru.id}"
+										<tr th:each="pelajaran : ${list_pelajaran}">
+											<td th:text="${pelajaran.id}"></td>
+											<td th:text="${pelajaran.namaPelajaran}"></td>
+											<td><a th:href="${'/admin/pelajaran/edit?idPelajaran='+pelajaran.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span
 													class="icon text-white-50"> <i
 														class="fas fa-info-circle"></i>
@@ -96,7 +96,6 @@
 												</span>
 											</a></td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>

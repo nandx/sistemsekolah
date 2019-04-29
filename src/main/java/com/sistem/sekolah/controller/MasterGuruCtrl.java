@@ -40,7 +40,7 @@ public class MasterGuruCtrl {
 	}
 
 	@GetMapping("/admin/guru/edit")
-	public String edit(Model model, @RequestParam("id") Integer paramid) {
+	public String edit(Model model, @RequestParam("idGuru") Integer paramid) {
 		Guru guru = adminGuruService.getGuru(paramid);
 		model.addAttribute("data", guru);
 		return "/admin/master_guru/master_guru_detail";
