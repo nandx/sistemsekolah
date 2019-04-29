@@ -23,20 +23,21 @@ public class KelasCtrl {
 		Model.addAttribute("list_kelas", kelasRepository.getAll());
 		return "/admin/master_kelas/master_kelas_list";
 	}
-	
+
 	@GetMapping("/admin/kelas/add")
 	public String addObject(Model model) {
-		model.addAttribute("kelas",new Kelas());
+		model.addAttribute("kelas", new Kelas());
 		return "/admin/master_kelas/master_kelas_detail";
 	}
+
 	@PostMapping("/admin/kelas/save")
 	public String save(Model model, @ModelAttribute Kelas dataKelas) {
 		kelasRepository.save(dataKelas);
-		return "redirect:";
+		return "redirect:/admin/kelas";
 	}
-	
+
 	@GetMapping("/admin/kelas/edit")
-	public String edit(Model model,@RequestParam("idKelas") Integer paramid) {
+	public String edit(Model model, @RequestParam("idKelas") Integer paramid) {
 		Kelas kelas = kelasRepository.getKelas(paramid);
 		model.addAttribute("kelas", kelas);
 		return "/admin/master_kelas/master_kelas_detail";
