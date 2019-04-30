@@ -34,6 +34,7 @@ public class MasterGuruCtrl {
 
 	@PostMapping("/admin/guru/add")
 	public String addSave(Model model, @ModelAttribute Guru guru) {
+		System.out.println(guru.getStatus());
 		System.out.println("guru : " + guru.getNamaGuru());
 		adminGuruService.save(guru);
 		return "redirect:";
