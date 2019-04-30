@@ -21,7 +21,6 @@
 
 <!-- Custom styles for this template -->
 <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-<link th:href="@{/css/comboBox.css}" rel="stylesheet">
 <!-- Custom styles for this page -->
 <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}"
 	rel="stylesheet">
@@ -65,14 +64,13 @@
 								th:object="${data}">
 								<div class="form-group">
 									<input type="hidden" th:field="*{id}"> <label>Nama
-										Guru</label> 
-										
-										<input type="text" th:field="*{namaGuru}"
+										Guru</label> <input type="text" th:field="*{namaGuru}"
 										class="form-control form-control-user" id="txt_namaguru"
 										placeholder="Nama Guru...">
 								</div>
-								<div class="styled-select">
-									<select th:field="*{status}">
+								<div class="form-group">
+									<label>Status</label> <select th:field="*{status}"
+										class="custom-select">
 										<option th:value="'AKTIF'" th:text="AKTIF"></option>
 										<option th:value="'NONAKTIF'" th:text="NONAKTIF"></option>
 									</select>
