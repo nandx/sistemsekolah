@@ -20,10 +20,10 @@ public class Guru {
 
 	@Column(name = "nama_guru", length = 200)
 	private String namaGuru;
-	
-    @Enumerated(EnumType.STRING)
-    @Column(name="STATUS",length=20)
-    private Status status;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "STATUS", length = 20)
+	private Status status;
 
 	public Status getStatus() {
 		return status;
