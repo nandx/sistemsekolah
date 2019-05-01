@@ -2,6 +2,8 @@ package com.sistem.sekolah.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.sistem.sekolah.entity.enumEntity.Semester;
 
 @Entity
 @Table(name = "master_semester")
@@ -22,8 +26,9 @@ public class MasterSemester {
 	@Column(name = "tahun_ajaran", length = 4, nullable = false)
 	private Integer tahunAjaran;
 
-	@Column(name = "semester", length = 4, nullable = false)
-	private Integer semester;
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "Semester", length = 20)
+	private Semester semester;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pelajaran_id")
@@ -53,11 +58,11 @@ public class MasterSemester {
 		this.tahunAjaran = tahunAjaran;
 	}
 
-	public Integer getSemester() {
+	public Semester getSemester() {
 		return semester;
 	}
 
-	public void setSemester(Integer semester) {
+	public void setSemester(Semester semester) {
 		this.semester = semester;
 	}
 

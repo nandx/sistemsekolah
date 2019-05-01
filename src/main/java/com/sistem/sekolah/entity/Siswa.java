@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sistem.sekolah.entity.enumEntity.Status;
+
 @Entity
 @Table(name = "siswa")
 public class Siswa {
