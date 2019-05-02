@@ -1,5 +1,6 @@
 package com.sistem.sekolah.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class MasterGuruCtrl {
 	private AdminGuruService adminGuruService;
 
 	@GetMapping("/admin/guru")
-	public String list(Model model) {
+	public String list(Model model, Principal principal) {
 		List<Guru> list = adminGuruService.getList();
 		model.addAttribute("list_guru", list);
 		return "/admin/master_guru/master_guru_list";
