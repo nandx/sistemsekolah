@@ -37,7 +37,6 @@ public class SemesterCtrl {
 		MasterSemester masterSemester = masterSemesterService.getMasterSemester(idSemester);
 		model.addAttribute("masterSemesterData", masterSemester);
 		model.addAttribute("dataPelajaran", adminPelajaranService.getAll());
-
 		model.addAttribute("dataGuru", adminGuruService.getList());
 		model.addAttribute("dataKelas", adminKelasService.getAll());
 		return "/admin/master_semester/master_semester_detail";
