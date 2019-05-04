@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sistem.sekolah.entity.MasterSemester;
+import com.sistem.sekolah.entity.SemesterKelas;
 import com.sistem.sekolah.service.AdminGuruService;
 import com.sistem.sekolah.service.AdminKelasService;
 import com.sistem.sekolah.service.AdminPelajaranService;
-import com.sistem.sekolah.service.MasterSemesterService;
+import com.sistem.sekolah.service.SemesterKelasService;
 
 @Controller
 public class SemesterCtrl {
 
 	@Autowired
-	MasterSemesterService masterSemesterService;
+	SemesterKelasService masterSemesterService;
 	@Autowired
 	AdminGuruService adminGuruService;
 	@Autowired
@@ -32,9 +32,9 @@ public class SemesterCtrl {
 		return "/admin/master_semester/master_semester_list";
 	}
 
-	@GetMapping("/admin/masterSemester/edit")
+	@GetMapping("/admin/semester/edit")
 	public String edit(Model model, @RequestParam("idMasterSemester") Integer idSemester) {
-		MasterSemester masterSemester = masterSemesterService.getMasterSemester(idSemester);
+		SemesterKelas masterSemester = masterSemesterService.getMasterSemester(idSemester);
 		model.addAttribute("masterSemesterData", masterSemester);
 		model.addAttribute("dataPelajaran", adminPelajaranService.getAll());
 		model.addAttribute("dataGuru", adminGuruService.getList());
@@ -42,24 +42,24 @@ public class SemesterCtrl {
 		return "/admin/master_semester/master_semester_detail";
 	}
 
-	@GetMapping("/admin/masterSemester/add")
+	@GetMapping("/admin/semester/add")
 	public String add(Model model) {
-		model.addAttribute("masterSemesterData", new MasterSemester());
+		model.addAttribute("masterSemesterData", new SemesterKelas());
 		model.addAttribute("dataPelajaran", adminPelajaranService.getAll());
 		model.addAttribute("dataGuru", adminGuruService.getList());
 		model.addAttribute("dataKelas", adminKelasService.getAll());
 		return "/admin/master_semester/master_semester_detail";
 	}
 
-	@PostMapping("/admin/masterSemester/save")
-	public String save(Model model, @ModelAttribute MasterSemester masterSemester) {
+	@PostMapping("/admin/semester/save")
+	public String save(Model model, @ModelAttribute SemesterKelas masterSemester) {
 		masterSemesterService.saveMasterSemester(masterSemester);
 		return "redirect:/admin/semester";
 	}
 
 	@GetMapping("/admin/semester/siswa")
 	public String semestersiswa(Model model, @RequestParam("id") Integer idSemester) {
-		MasterSemester masterSemester = masterSemesterService.getMasterSemester(idSemester);
+		SemesterKelas masterSemester = masterSemesterService.getMasterSemester(idSemester);
 		model.addAttribute("masterSemesterData", masterSemester);
 		return "/admin/master_semester/master_semester_siswa";
 	}

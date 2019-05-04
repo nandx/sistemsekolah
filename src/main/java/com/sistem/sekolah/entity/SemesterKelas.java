@@ -12,11 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.sistem.sekolah.entity.enumEntity.Semester;
+import com.sistem.sekolah.constant.SemesterEnum;
 
 @Entity
-@Table(name = "master_semester")
-public class MasterSemester {
+@Table(name = "semester_kelas")
+public class SemesterKelas {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,16 +27,8 @@ public class MasterSemester {
 	private Integer tahunAjaran;
 
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "Semester", length = 20)
-	private Semester semester;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pelajaran_id")
-	private Pelajaran pelajaran;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "guru_id")
-	private Guru guru;
+	@Column(name = "semester", length = 20)
+	private SemesterEnum semester;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "kelas_id")
@@ -58,28 +50,12 @@ public class MasterSemester {
 		this.tahunAjaran = tahunAjaran;
 	}
 
-	public Semester getSemester() {
+	public SemesterEnum getSemester() {
 		return semester;
 	}
 
-	public void setSemester(Semester semester) {
+	public void setSemester(SemesterEnum semester) {
 		this.semester = semester;
-	}
-
-	public Pelajaran getPelajaran() {
-		return pelajaran;
-	}
-
-	public void setPelajaran(Pelajaran pelajaran) {
-		this.pelajaran = pelajaran;
-	}
-
-	public Guru getGuru() {
-		return guru;
-	}
-
-	public void setGuru(Guru guru) {
-		this.guru = guru;
 	}
 
 	public Kelas getKelas() {

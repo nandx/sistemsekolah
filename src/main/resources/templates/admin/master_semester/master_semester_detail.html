@@ -60,7 +60,7 @@
 						</div>
 
 						<div class="card-body">
-							<form class="user" th:action="@{/admin/masterSemester/save}"
+							<form class="user" th:action="@{/admin/semester/save}"
 								method="post" th:object="${masterSemesterData}">
 								<div class="form-group">
 									<input type="hidden" th:field="*{id}">
@@ -78,24 +78,24 @@
 										class="form-control form-control-user" id="txt_namaguru"
 										placeholder="Tahun Ajaran">
 								</div>
-								<label>Pelajaran</label>
-								<div class="form-group blu-margin">
-									<select class="form-control" th:field="*{pelajaran}"
-										id="dropOperator">
-										<option value="0">Pilih Pelajaran</option>
-										<option th:each="operator : ${dataPelajaran}"
-											th:value="${operator.id}" th:text="${operator.namaPelajaran}"></option>
-									</select>
-								</div>
-								<label>Guru</label>
-								<div class="form-group blu-margin">
-									<select class="form-control" th:field="*{guru}"
-										id="dropOperator">
-										<option value="0">Pilih Guru</option>
-										<option th:each="operator : ${dataGuru}"
-											th:value="${operator.id}" th:text="${operator.namaGuru}"></option>
-									</select>
-								</div>
+<!-- 								<label>Pelajaran</label> -->
+<!-- 								<div class="form-group blu-margin"> -->
+<!-- 									<select class="form-control" th:field="*{pelajaran}" -->
+<!-- 										id="dropOperator"> -->
+<!-- 										<option value="0">Pilih Pelajaran</option> -->
+<!-- 										<option th:each="operator : ${dataPelajaran}" -->
+<!-- 											th:value="${operator.id}" th:text="${operator.namaPelajaran}"></option> -->
+<!-- 									</select> -->
+<!-- 								</div> -->
+<!-- 								<label>Guru</label> -->
+<!-- 								<div class="form-group blu-margin"> -->
+<!-- 									<select class="form-control" th:field="*{guru}" -->
+<!-- 										id="dropOperator"> -->
+<!-- 										<option value="0">Pilih Guru</option> -->
+<!-- 										<option th:each="operator : ${dataGuru}" -->
+<!-- 											th:value="${operator.id}" th:text="${operator.namaGuru}"></option> -->
+<!-- 									</select> -->
+<!-- 								</div> -->
 								<label>Kelas</label>
 								<div class="form-group blu-margin">
 									<select class="form-control" th:field="*{kelas}"

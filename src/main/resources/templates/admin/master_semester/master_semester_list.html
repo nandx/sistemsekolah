@@ -63,7 +63,7 @@
 
 						<div class="card-body">
 							<div>
-								<a th:href="@{/admin/masterSemester/add}"
+								<a th:href="@{/admin/semester/add}"
 									class="btn btn-primary btn-icon-split btn-sm"> <span
 									class="icon text-white-50"> <i class="fas fa-plus"></i>
 								</span> <span class="text">Add</span>
@@ -81,8 +81,8 @@
 											<th>Tahun ajaran</th>
 											<th>Semester</th>
 											<th>Pelajaran</th>
-											<th>Guru</th>
-											<th>Kelas</th>
+<!-- 											<th>Guru</th> -->
+<!-- 											<th>Kelas</th> -->
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -91,11 +91,11 @@
 											<td th:text="${semester.id}"></td>
 											<td th:text="${semester.tahunAjaran}"></td>
 											<td th:text="${semester.semester.text}"></td>
-											<td th:text="${semester.pelajaran.namaPelajaran}"></td>
-											<td th:text="${semester.guru.namaGuru}"></td>
+<!-- 											<td th:text="${semester.pelajaran.namaPelajaran}"></td> -->
+<!-- 											<td th:text="${semester.guru.namaGuru}"></td> -->
 											<td th:text="${semester.kelas.namaKelas}"></td>
 											<td><a
-												th:href="${'/admin/masterSemester/edit?idMasterSemester='+semester.id}"
+												th:href="${'/admin/semester/edit?idMasterSemester='+semester.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span
 													class="icon text-white-50"> <i
 														class="fas fa-info-circle"></i>

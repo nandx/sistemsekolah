@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.sistem.sekolah.entity.enumEntity.Status;
+import com.sistem.sekolah.constant.Status;
 
 @Entity
 @Table(name = "guru")

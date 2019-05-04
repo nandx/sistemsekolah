@@ -1,9 +1,9 @@
-package com.sistem.sekolah.entity.enumEntity;
+package com.sistem.sekolah.constant;
 
-public enum Semester {
+public enum SemesterEnum {
 	GANJIL(1), GENAP(2);
 
-	private Semester(Integer text) {
+	private SemesterEnum(Integer text) {
 		this.text = text;
 	}
 
