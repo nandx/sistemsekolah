@@ -1,5 +1,7 @@
 package com.sistem.sekolah.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,8 @@ public class AppUserCtrl {
 	
 	@GetMapping("/admin/appuser")
 	public String index(Model model) {
-		model.addAttribute("list_AppUser", appUserService.getAll());
+		List<AppUser> test = appUserService.getAll();
+		model.addAttribute("list_AppUser", test);
 		return "/admin/master_AppUser/master_AppUser_list";
 	}
 	
