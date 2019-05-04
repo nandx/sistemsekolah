@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.sistem.sekolah.entity.enumEntity.Status;
+import com.sistem.sekolah.constant.Status;
 
 @Entity
 @Table(name = "siswa")
@@ -23,10 +23,10 @@ public class Siswa {
 	@Column(name = "nama_siswa", length = 200)
 	private String namaSiswa;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="STATUS",length=20)
-    private Status status;
-	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "STATUS", length = 20)
+	private Status status;
+
 	public Status getStatus() {
 		return status;
 	}

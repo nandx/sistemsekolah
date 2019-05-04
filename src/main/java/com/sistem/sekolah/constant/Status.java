@@ -1,4 +1,4 @@
-package com.sistem.sekolah.entity.enumEntity;
+package com.sistem.sekolah.constant;
 
 public enum Status {
 	AKTIF("aktif"), NONAKTIF("nonaktif");

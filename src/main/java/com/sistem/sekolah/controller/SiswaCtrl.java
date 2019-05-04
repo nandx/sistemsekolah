@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.sistem.sekolah.constant.Status;
 import com.sistem.sekolah.entity.Siswa;
 import com.sistem.sekolah.service.AdminSiswaService;
 
@@ -31,6 +32,8 @@ public class SiswaCtrl {
 
 	@PostMapping("/admin/siswa/save")
 	public String save(Model model, @ModelAttribute Siswa siswa) {
+		// TODO : HARDCODE
+		siswa.setStatus(Status.AKTIF);
 		adminSiswaService.save(siswa);
 		return "redirect:";
 	}
