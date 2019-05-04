@@ -56,4 +56,11 @@ public class SemesterCtrl {
 		masterSemesterService.saveMasterSemester(masterSemester);
 		return "redirect:/admin/semester";
 	}
+
+	@GetMapping("/admin/semester/siswa")
+	public String semestersiswa(Model model, @RequestParam("id") Integer idSemester) {
+		MasterSemester masterSemester = masterSemesterService.getMasterSemester(idSemester);
+		model.addAttribute("masterSemesterData", masterSemester);
+		return "/admin/master_semester/master_semester_siswa";
+	}
 }
