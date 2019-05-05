@@ -57,13 +57,12 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Master
-								Semester</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Master Guru</h6>
 						</div>
 
 						<div class="card-body">
 							<div>
-								<a th:href="@{/admin/semester/add}"
+								<a th:href="@{/admin/guru/add}"
 									class="btn btn-primary btn-icon-split btn-sm"> <span
 									class="icon text-white-50"> <i class="fas fa-plus"></i>
 								</span> <span class="text">Add</span>
@@ -77,25 +76,23 @@
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>Id</th>
-											<th>Tahun ajaran</th>
-											<th>Semester</th>
+											<th>ID</th>
+											<th>Nama Siswa</th>
+											<th>Tahun Ajaran</th>
 											<th>Kelas</th>
-<!-- 											<th>Guru</th> -->
-<!-- 											<th>Kelas</th> -->
+											<th>Semester</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="semester : ${list_MasterSemester}">
-											<td th:text="${semester.id}"></td>
-											<td th:text="${semester.tahunAjaran}"></td>
-											<td th:text="${semester.semester.text}"></td>
-<!-- 											<td th:text="${semester.pelajaran.namaPelajaran}"></td> -->
-<!-- 											<td th:text="${semester.guru.namaGuru}"></td> -->
-											<td th:text="${semester.kelas.namaKelas}"></td>
+										<tr th:each="data : ${dataSemesterKelasSiswa}">
+											<td th:text="${data.id}"></td>
+											<td th:text="${data.siswa.namaSiswa}"></td>
+											<td th:text="${data.masterSemester.tahunAjaran}"></td>
+											<td th:text="${data.masterSemester.kelas.namaKelas}"></td>
+											<td th:text="${data.masterSemester.semester.text}"></td>
 											<td><a
-												th:href="${'/admin/semester/edit?idMasterSemester='+semester.id}"
+												th:href="${'/admin/semesterkelassiswa/edit?idsemesterkelassiswa='+data.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span
 													class="icon text-white-50"> <i
 														class="fas fa-info-circle"></i>
@@ -104,11 +101,6 @@
 													<span class="icon text-gray-600"> <i
 														class="fas fa-trash"></i>
 												</span>
-											</a> <a th:href="${'/admin/semester/siswa?id='+semester.id}"
-												class="btn btn-info btn-icon-split"> <span
-													class="icon text-gray-600"> <i
-														class="fas fa-arrow-right"></i>
-												</span> <span class="text">Lihat Siswa</span>
 											</a></td>
 										</tr>
 

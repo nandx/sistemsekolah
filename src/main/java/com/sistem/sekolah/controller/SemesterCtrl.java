@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sistem.sekolah.entity.SemesterKelas;
+import com.sistem.sekolah.entity.SemesterKelasSiswa;
 import com.sistem.sekolah.service.AdminGuruService;
 import com.sistem.sekolah.service.AdminKelasService;
 import com.sistem.sekolah.service.AdminPelajaranService;
+import com.sistem.sekolah.service.AdminSiswaService;
 import com.sistem.sekolah.service.SemesterKelasService;
+import com.sistem.sekolah.service.SemesterKelasSiswaService;
 
 @Controller
 public class SemesterCtrl {
@@ -25,6 +28,10 @@ public class SemesterCtrl {
 	AdminPelajaranService adminPelajaranService;
 	@Autowired
 	AdminKelasService adminKelasService;
+	@Autowired
+	AdminSiswaService adminSiswaService;
+	@Autowired
+	SemesterKelasSiswaService semesterKelasSiswaService;
 
 	@GetMapping("/admin/semester")
 	public String indexSemester(Model model) {
@@ -57,10 +64,20 @@ public class SemesterCtrl {
 		return "redirect:/admin/semester";
 	}
 
+	@PostMapping("/admin/semestersiswa/save")
+	public String saveSemesterKelasSiswaSave(Model model, @ModelAttribute SemesterKelasSiswa masterSemester) {
+		semesterKelasSiswaService.save(masterSemester);
+		return "redirect:/admin/semester";
+	}
+
 	@GetMapping("/admin/semester/siswa")
 	public String semestersiswa(Model model, @RequestParam("id") Integer idSemester) {
 		SemesterKelas masterSemester = masterSemesterService.getMasterSemester(idSemester);
+		SemesterKelasSiswa ssk = new SemesterKelasSiswa();
+		ssk.setMasterSemester(masterSemester);
 		model.addAttribute("masterSemesterData", masterSemester);
+		model.addAttribute("Siswa", adminSiswaService.getAll());
+		model.addAttribute("dataNew", ssk);
 		return "/admin/master_semester/master_semester_siswa";
 	}
 }
