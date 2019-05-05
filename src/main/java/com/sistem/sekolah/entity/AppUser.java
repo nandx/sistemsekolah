@@ -2,9 +2,12 @@ package com.sistem.sekolah.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +27,14 @@ public class AppUser {
 
 	@Column(name = "userrole", length = 50)
 	private String userrole;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "guru_id")
+	private Guru guru;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "siswa_id")
+	private Siswa siswa;
 
 	public Integer getId() {
 		return id;
@@ -55,6 +66,22 @@ public class AppUser {
 
 	public void setUserrole(String userrole) {
 		this.userrole = userrole;
+	}
+
+	public Guru getGuru() {
+		return guru;
+	}
+
+	public void setGuru(Guru guru) {
+		this.guru = guru;
+	}
+
+	public Siswa getSiswa() {
+		return siswa;
+	}
+
+	public void setSiswa(Siswa siswa) {
+		this.siswa = siswa;
 	}
 
 }
