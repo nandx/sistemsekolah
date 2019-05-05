@@ -15,27 +15,29 @@ import com.sistem.sekolah.service.AppUserService;
 
 @Controller
 public class AppUserCtrl {
-	
+
 	@Autowired
 	AppUserService appUserService;
-	
+
 	@GetMapping("/admin/appuser")
 	public String index(Model model) {
 		List<AppUser> test = appUserService.getAll();
 		model.addAttribute("list_AppUser", test);
 		return "/admin/master_AppUser/master_AppUser_list";
 	}
-	
+
 	@GetMapping("/admin/appuser/add")
 	public String add(Model model) {
 		model.addAttribute("dataUser", new AppUser());
 		return "/admin/master_AppUser/master_AppUser_detail";
 	}
+
 	@PostMapping("/admin/appuser/save")
 	public String save(Model model, @ModelAttribute AppUser appUser) {
-		appUserService.save(appUser);
+		appUserService.createUser(appUser);
 		return "redirect:";
 	}
+
 	@GetMapping("/admin/appuser/edit")
 	public String edit(Model model, @RequestParam("idUser") Integer id) {
 		AppUser appUser = appUserService.getGuru(id);

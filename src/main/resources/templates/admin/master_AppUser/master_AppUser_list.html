@@ -78,7 +78,7 @@
 										<tr>
 											<th>User ID</th>
 											<th>Username</th>
-											<th>Password</th>
+											<th>User Role</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -86,7 +86,7 @@
 										<tr th:each="user : ${list_AppUser}">
 											<td th:text="${user.id}"></td>
 											<td th:text="${user.username}"></td>
-											<td style="visibility:collapse;" th:text="${user.password}"></td>
+											<td th:text="${user.userrole}"></td>
 											<td><a
 												th:href="${'/admin/appuser/edit?idUser='+user.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span
