@@ -62,12 +62,9 @@
 						<div class="card-body">
 							<form class="user" th:action="@{/admin/appuser/save}"
 								method="post" th:object="${dataUser}">
+
 								<div class="form-group">
-									<label>ID </label> <input type="text" th:field="*{id}"
-										class="form-control form-control-user" id="txt_namaguru"
-										placeholder="ID ...">
-								</div>
-								<div class="form-group">
+									<input type="hidden" th:field="*{id}" id="txt_namaguru">
 									<label>Username </label> <input type="text"
 										th:field="*{username}" class="form-control form-control-user"
 										id="txt_namaguru" placeholder="Username ...">
@@ -77,6 +74,16 @@
 										th:field="*{password}" class="form-control form-control-user"
 										id="txt_namaguru" placeholder="Password ...">
 								</div>
+
+								<div class="form-group">
+									<label>User Role</label> <select th:field="*{userrole}"
+										class="custom-select">
+										<option th:value="'ADMIN'" th:text="'ADMIN'"></option>
+										<option th:value="'GURU'" th:text="'GURU'"></option>
+										<option th:value="'SISWA'" th:text="'SISWA'"></option>
+									</select>
+								</div>
+
 								<div>
 									<button class="btn btn-primary btn-user btn-block"
 										type="submit">Save</button>
