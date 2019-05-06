@@ -76,7 +76,26 @@
 								</div>
 
 								<div class="form-group">
-									<label>User Role</label> <select th:field="*{userrole}"
+									<label>User Role</label> <select id="opt_userrole"
+										th:field="*{userrole}" class="custom-select"
+										onchange="onchange_role();">
+										<option th:value="'ADMIN'" th:text="'ADMIN'"></option>
+										<option th:value="'GURU'" th:text="'GURU'"></option>
+										<option th:value="'SISWA'" th:text="'SISWA'"></option>
+									</select>
+								</div>
+
+								<div class="form-group">
+									<label>Guru </label> <select id="opt_guru" th:field="*{guru}"
+										class="custom-select">
+										<option th:value="'ADMIN'" th:text="'ADMIN'"></option>
+										<option th:value="'GURU'" th:text="'GURU'"></option>
+										<option th:value="'SISWA'" th:text="'SISWA'"></option>
+									</select>
+								</div>
+								
+								<div class="form-group">
+									<label>Siswa </label> <select id="opt_siswa" th:field="*{siswa}"
 										class="custom-select">
 										<option th:value="'ADMIN'" th:text="'ADMIN'"></option>
 										<option th:value="'GURU'" th:text="'GURU'"></option>
@@ -91,7 +110,6 @@
 										class="btn btn-secondary btn-user btn-block"> <span
 										class="text">Cancel</span>
 									</a>
-									<!-- 									<button class="btn btn-secondary btn-user btn-block">Cancel</button> -->
 								</div>
 
 							</form>
@@ -164,6 +182,17 @@
 
 	<!-- Page level custom scripts -->
 	<script th:src="@{/js/demo/datatables-demo.js}"></script>
+
+	<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+		var onchange_role = function() {
+			var user_role = $('#opt_userrole').val();
+			 $('#opt_guru').prop('disabled', user_role != 'GURU');
+			 $('#opt_siswa').prop('disabled', user_role != 'SISWA');
+		}
+	
+  	/*]]>*/
+	</script>
 
 </body>
 
