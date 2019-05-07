@@ -14,7 +14,7 @@ public class SemesterKelasService {
 	@Autowired
 	private SemesterKelasRepository kelasSemesterRepository;
 
-	public void saveMasterSemester(SemesterKelas semesterKelas) {
+	public void save(SemesterKelas semesterKelas) {
 		kelasSemesterRepository.save(semesterKelas);
 	}
 
