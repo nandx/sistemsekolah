@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -26,84 +27,96 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
+
+			<div sec:authorize="hasAuthority('ADMIN')">
+				<!-- Heading -->
+				<div class="sidebar-heading">Administrator</div>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/guru}"> <i
+						class="fas fa-fw fa-chalkboard-teacher"></i> <span>Master
+							Guru</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/kelas}"> <i class="fas fa-fw fa-person-booth"></i>
+						<span>Master Kelas</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/pelajaran}"> <i
+						class="fas fa-fw fa-book-reader"></i> <span>Master
+							Pelajaran</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/siswa}"> <i
+						class="fas fa-fw fa-user-graduate "></i> <span>Master Siswa</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/semester}"> <i
+						class="fas fa-fw fa-chalkboard "></i> <span>Master Semester</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/semester-siswa}"> <i
+						class="fas fa-fw fa-graduation-cap "></i> <span>Master
+							Semester Siswa</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/appuser}"> <i class="fas fa-fw fa-users "></i>
+						<span>Master User</span>
+				</a></li>
+
+				<!-- Divider -->
+				<hr class="sidebar-divider">
+			</div>
+
+
+
+
+
+			<div sec:authorize="hasAuthority('GURU')">
+
+				<!-- Heading -->
+				<div class="sidebar-heading">Guru</div>
+
+				<!-- Nav Item - Pages Collapse Menu -->
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/guru/wali-kelas}"> <i
+						class="fas fa-fw fa-user-shield "></i> <span>Wali Kelas</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/guru/pelajaran}"> <i
+						class="fas fa-fw fa-address-book "></i> <span>Pelajaran</span>
+				</a></li>
+
+
+				<hr class="sidebar-divider">
+
+
+			</div>
 			<!-- Heading -->
-			<div class="sidebar-heading">Administrator</div>
 
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/guru}"> <i
-					class="fas fa-fw fa-chalkboard-teacher"></i> <span>Master
-						Guru</span>
-			</a></li>
+			<div sec:authorize="hasAuthority('SISWA')">
+				<div class="sidebar-heading">Siswa</div>
 
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/kelas}"> <i class="fas fa-fw fa-person-booth"></i>
-					<span>Master Kelas</span>
-			</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/pelajaran}"> <i
-					class="fas fa-fw fa-book-reader"></i> <span>Master Pelajaran</span>
-			</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/siswa}"> <i
-					class="fas fa-fw fa-user-graduate "></i> <span>Master Siswa</span>
-			</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/semester}"> <i
-					class="fas fa-fw fa-chalkboard "></i> <span>Master Semester</span>
-			</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/semester-siswa}"> <i
-					class="fas fa-fw fa-graduation-cap "></i> <span>Master
-						Semester Siswa</span>
-			</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/appuser}"> <i class="fas fa-fw fa-users "></i>
-					<span>Master User</span>
-			</a></li>
+				<!-- Nav Item - Pages Collapse Menu -->
 
 
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/siswa/pelajaran}"> <i
+						class="fas fa-fw fa-address-book"></i> <span>Pelajaran</span>
+				</a></li>
 
 
+				<!-- Divider -->
+				<hr class="sidebar-divider d-none d-md-block">
 
-			<!-- Divider -->
-			<hr class="sidebar-divider">
-
-			<!-- Heading -->
-			<div class="sidebar-heading">Guru</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/guru/wali-kelas}"> <i
-					class="fas fa-fw fa-user-shield "></i> <span>Wali Kelas</span>
-			</a></li>
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/guru/pelajaran}"> <i
-					class="fas fa-fw fa-address-book "></i> <span>Pelajaran</span>
-			</a></li>
-
-
-			<hr class="sidebar-divider">
-
-			<!-- Heading -->
-			<div class="sidebar-heading">Siswa</div>
-
-			<!-- Nav Item - Pages Collapse Menu -->
-
-
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/siswa/pelajaran}"> <i
-					class="fas fa-fw fa-address-book"></i> <span>Pelajaran</span>
-			</a></li>
-
-
-			<!-- Divider -->
-			<hr class="sidebar-divider d-none d-md-block">
+			</div>
 
 			<!-- Sidebar Toggler (Sidebar) -->
 			<div class="text-center d-none d-md-inline">
