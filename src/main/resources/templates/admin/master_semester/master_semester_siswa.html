@@ -56,45 +56,41 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Add Semester
-								Siswa</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Master
+								Semester</h6>
 						</div>
 
 						<div class="card-body">
-							<form class="user" method="post"
-								th:object="${masterSemesterData}">
-								<div class="form-group">
-									<div class="form-group">
-										<label>Semester</label> <select th:field="*{semester}"
-											class="custom-select" disabled="disabled">
-											<option th:value="'GANJIL'" th:text="1"></option>
-											<option th:value="'GENAP'" th:text="2"></option>
-										</select>
-									</div>
 
-									<label>Tahun Ajaran</label> <input type="text"
-										th:field="*{tahunAjaran}"
-										class="form-control form-control-user" id="txt_namaguru"
-										placeholder="Tahun Ajaran" readonly="readonly">
-								</div>
-								<label>Pelajaran</label> <label>Guru</label>
-								<div class="form-group blu-margin">
-									<select class="form-control" th:field="*{semester}"
-										id="dropOperator" disabled="disabled">
-										<option value="0">Pilih Guru</option>
-										<option th:each="operator : ${dataGuru}"
-											th:value="${operator.id}" th:text="${operator.namaGuru}"></option>
-									</select>
-								</div>
-								<label>Kelas</label>
-								<div class="form-group blu-margin">
-									<select class="form-control" th:field="*{kelas}"
-										id="dropOperator" disabled="disabled">
-										<option value="0">Pilih Kelas</option>
-										<option th:each="operator : ${dataKelas}"
-											th:value="${operator.id}" th:text="${operator.namaKelas}"></option>
-									</select>
-								</div>
+
+							<div class="my-2"></div>
+
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Tahun Ajaran</th>
+											<th>Semester</th>
+											<th>Nama Siswa</th>
+											<!-- 											<th>Guru</th> -->
+											<!-- 											<th>Kelas</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="semester : ${allMasterSemester}">
+											<td th:text="${semester.id}"></td>
+											<td th:text="${semester.masterSemester.tahunAjaran}"></td>
+											<td th:text="${semester.masterSemester.semester.text}"></td>
+											<!-- 											<td th:text="${semester.pelajaran.namaPelajaran}"></td> -->
+											<!-- 											<td th:text="${semester.guru.namaGuru}"></td> -->
+											<td th:text="${semester.siswa.namaSiswa}"></td>
+
+										</tr>
+
+									</tbody>
+								</table>
 								<div>
 
 									<a class="btn btn-primary btn-user btn-block" href="#"
@@ -107,8 +103,7 @@
 									</a>
 									<!-- 									<button class="btn btn-secondary btn-user btn-block">Cancel</button> -->
 								</div>
-
-							</form>
+							</div>
 						</div>
 					</div>
 
@@ -179,9 +174,9 @@
 				<form class="user" th:action="@{/admin/semestersiswa/save}"
 					method="post" th:object="${dataNew}">
 					<div class="form-group blu-margin">
-						<input type="hidden" 
-						th:value="${masterSemesterData.id}" th:field="*{masterSemester}"> <select
-							th:field="*{siswa}" class="form-control" id="dropOperator">
+						<input type="hidden" th:value="${masterSemesterData.id}"
+							th:field="*{masterSemester}"> <select th:field="*{siswa}"
+							class="form-control" id="dropOperator">
 							<option value="0">Pilih Siswa</option>
 							<option th:each="operator : ${Siswa}" th:value="${operator.id}"
 								th:text="${operator.namaSiswa}"></option>

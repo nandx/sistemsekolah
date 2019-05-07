@@ -60,7 +60,7 @@ public class SemesterCtrl {
 
 	@PostMapping("/admin/semester/save")
 	public String save(Model model, @ModelAttribute SemesterKelas masterSemester) {
-		masterSemesterService.saveMasterSemester(masterSemester);
+		masterSemesterService.save(masterSemester);
 		return "redirect:/admin/semester";
 	}
 
@@ -74,9 +74,11 @@ public class SemesterCtrl {
 	public String semestersiswa(Model model, @RequestParam("id") Integer idSemester) {
 		SemesterKelas masterSemester = masterSemesterService.getMasterSemester(idSemester);
 		SemesterKelasSiswa ssk = new SemesterKelasSiswa();
+		semesterKelasSiswaService.getSemesterKelasSiswa(idSemester);
 		ssk.setMasterSemester(masterSemester);
 		model.addAttribute("masterSemesterData", masterSemester);
 		model.addAttribute("Siswa", adminSiswaService.getAll());
+		model.addAttribute("allMasterSemester",semesterKelasSiswaService.getAll());
 		model.addAttribute("dataNew", ssk);
 		return "/admin/master_semester/master_semester_siswa";
 	}
