@@ -23,7 +23,7 @@ public class SecureCtrl {
 			if ("ADMIN".equals(role)) {
 				return "redirect:/admin/guru";
 			} else if ("GURU".equals(role)) {
-				return "redirect:/guru";
+				return "redirect:/guru/pelajaran";
 			}
 		}
 		return "redirect:/logout";
