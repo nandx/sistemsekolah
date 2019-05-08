@@ -1,11 +1,18 @@
 package com.sistem.sekolah.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "pelajaran")
@@ -18,6 +25,33 @@ public class Pelajaran {
 
 	@Column(name = "nama_pelajaran", length = 200)
 	private String namaPelajaran;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "semester_ID", nullable = false)
+	private SemesterKelas SemesterKelas;
+
+	@ManyToOne
+	@JoinColumn(name = "guru_ID", nullable = false)
+	private Guru guru;
+
+
+
+	public SemesterKelas getSemesterKelas() {
+		return SemesterKelas;
+	}
+
+	public void setSemesterKelas(SemesterKelas semesterKelas) {
+		SemesterKelas = semesterKelas;
+	}
+
+	public Guru getGuru() {
+		return guru;
+	}
+
+	public void setGuru(Guru guru) {
+		this.guru = guru;
+	}
 
 	public Integer getId() {
 		return id;

@@ -78,14 +78,20 @@
 									<thead>
 										<tr>
 											<th>ID</th>
+											<th>Nama Guru</th>
 											<th>Nama Pelajaran</th>
+											<th>Semester</th>
+											<th>Kelas</th>
 											<th>ACTION</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr th:each="pelajaran : ${list_pelajaran}">
 											<td th:text="${pelajaran.id}"></td>
+											<td th:text="${pelajaran.guru.namaGuru}"></td>
 											<td th:text="${pelajaran.namaPelajaran}"></td>
+											<td th:text="${pelajaran.SemesterKelas.semester.text}"></td>
+											<td th:text="${pelajaran.SemesterKelas.kelas.namaKelas}"></td>
 											<td><a
 												th:href="${'/admin/pelajaran/edit?idPelajaran='+pelajaran.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span

@@ -69,6 +69,30 @@
 										class="form-control form-control-user" id="txt_namaKelas"
 										placeholder="Nama Pelajaran..">
 								</div>
+
+								<label>Guru</label>
+								<div class="form-group blu-margin">
+									<select class="form-control" th:field="*{guru}"
+										id="dropOperator">
+										<option value="0">Pilih Guru</option>
+										<option th:each="operator : ${list_guru}"
+											th:value="${operator.id}" th:text="${operator.namaGuru}"></option>
+									</select>
+								</div>
+
+
+
+								<label>Semester & Kelas</label>
+								<div class="form-group blu-margin">
+									<select class="form-control" th:field="*{SemesterKelas}"
+										id="dropOperator">
+										<option value="0">Pilih Semester dan Kelas</option>
+										<option th:each="operator : ${data}"
+											th:value="${operator.id}" th:text="|Tahun Ajaran [${operator.tahunAjaran}] Semester - ${operator.semester.text} Kelas [${operator.kelas.namaKelas}]|"></option>
+									</select>
+								</div>
+
+
 								<div>
 									<button class="btn btn-primary btn-user btn-block"
 										type="submit">Save</button>
