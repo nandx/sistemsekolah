@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sistem.sekolah.entity.Pelajaran;
+import com.sistem.sekolah.entity.SemesterKelas;
+import com.sistem.sekolah.repository.MasterSemesterSiswaRepository;
+import com.sistem.sekolah.service.AdminGuruService;
 import com.sistem.sekolah.service.AdminPelajaranService;
+import com.sistem.sekolah.service.SemesterKelasService;
 
 @Controller
 public class PelajaranCtrl {
@@ -17,6 +21,13 @@ public class PelajaranCtrl {
 	@Autowired
 	AdminPelajaranService adminPelajaranService;
 
+	@Autowired
+	AdminGuruService adminGuruService;
+	
+	@Autowired
+	SemesterKelasService semesterKelasService;
+	
+	
 	@GetMapping("/admin/pelajaran")
 	public String list(Model model) {
 		// ambil semua data Pelajaran lalu kirim obj ke halaman dgn var list_pelajaran
@@ -28,6 +39,8 @@ public class PelajaranCtrl {
 	public String add(Model model) {
 		// kirim obj Pelajaran supaya di form bisa save
 		model.addAttribute("pelajaran", new Pelajaran());
+		model.addAttribute("list_guru", adminGuruService.getList());
+		model.addAttribute("data", semesterKelasService.getAll());
 		return "/admin/master_pelajaran/master_pelajaran_detail";
 	}
 
@@ -40,7 +53,7 @@ public class PelajaranCtrl {
 	@GetMapping("/admin/pelajaran/edit")
 	public String edit(Model model, @RequestParam("idPelajaran") Integer idPelajaran) {
 		Pelajaran pelajaran = adminPelajaranService.getPelajaran(idPelajaran);
-		model.addAttribute("pelajaran",pelajaran);
+		model.addAttribute("pelajaran", pelajaran);
 		return "/admin/master_pelajaran/master_pelajaran_detail";
 	}
 
