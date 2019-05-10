@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +17,8 @@ public class UserPrincipal implements UserDetails {
 	private AppUser appUser;
 	private List<GrantedAuthority> listAuth;
 
+	
+	//constructor
 	public UserPrincipal(AppUser user) {
 		this.appUser = user;
 		this.listAuth = new ArrayList<>();
@@ -33,11 +35,13 @@ public class UserPrincipal implements UserDetails {
 		return listAuth;
 	}
 
+	//password
 	@Override
 	public String getPassword() {
 		return appUser.getPassword();
 	}
 
+	//username
 	@Override
 	public String getUsername() {
 		return appUser.getUsername();

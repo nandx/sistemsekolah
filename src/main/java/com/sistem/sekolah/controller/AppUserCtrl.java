@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sistem.sekolah.entity.AppUser;
+import com.sistem.sekolah.security.UserPrincipal;
 import com.sistem.sekolah.service.AdminGuruService;
 import com.sistem.sekolah.service.AdminSiswaService;
 import com.sistem.sekolah.service.AppUserService;
@@ -24,12 +25,19 @@ public class AppUserCtrl {
 	AdminGuruService adminGuruService;
 	@Autowired
 	AdminSiswaService AdminSiswaService;
+	
+	UserPrincipal userPrincipal;
 
 	@GetMapping("/admin/appuser")
 	public String index(Model model) {
 		List<AppUser> test = appUserService.getAll();
 		model.addAttribute("list_AppUser", test);
 		return "/admin/master_AppUser/master_AppUser_list";
+	}
+	@GetMapping("/create/appuser")
+	public String create(Model model) {
+		model.addAttribute("dataUser", new AppUser());
+		return "/admin/master_AppUser/master_AppUser_detail";
 	}
 
 	@GetMapping("/admin/appuser/add")
@@ -52,4 +60,6 @@ public class AppUserCtrl {
 		model.addAttribute("dataUser", appUser);
 		return "/admin/master_AppUser/master_AppUser_detail";
 	}
+	
+	
 }
