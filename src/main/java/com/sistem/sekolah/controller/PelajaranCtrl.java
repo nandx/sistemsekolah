@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sistem.sekolah.entity.Pelajaran;
-import com.sistem.sekolah.entity.SemesterKelas;
-import com.sistem.sekolah.repository.MasterSemesterSiswaRepository;
 import com.sistem.sekolah.service.AdminGuruService;
 import com.sistem.sekolah.service.AdminPelajaranService;
 import com.sistem.sekolah.service.SemesterKelasService;

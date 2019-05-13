@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sistem.sekolah.entity.SemesterKelas;
+
 import com.sistem.sekolah.entity.SemesterKelasSiswa;
 import com.sistem.sekolah.service.AdminGuruService;
 import com.sistem.sekolah.service.AdminKelasService;

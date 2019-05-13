@@ -7,7 +7,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.sistem.sekolah.entity.AppUser;
-import com.sistem.sekolah.entity.Guru;
 import com.sistem.sekolah.repository.UserAppRepository;
 
 @Service

@@ -25,5 +25,7 @@ public class AdminGuruService {
 	public Guru getGuru(int id) {
 		return guruRepository.getOne(id);
 	}
+	
+
 
 }
