@@ -78,8 +78,9 @@ public class SemesterCtrl {
 		ssk.setMasterSemester(masterSemester);
 		model.addAttribute("masterSemesterData", masterSemester);
 		model.addAttribute("Siswa", adminSiswaService.getAll());
-		model.addAttribute("allMasterSemester",semesterKelasSiswaService.getAll());
-		model.addAttribute("dataNew", ssk);
+		model.addAttribute("dataNew", semesterKelasSiswaService.getAll());
+
+		model.addAttribute("allMasterSemester", semesterKelasSiswaService.findByMasterSemester(idSemester));
 		return "/admin/master_semester/master_semester_siswa";
 	}
 }

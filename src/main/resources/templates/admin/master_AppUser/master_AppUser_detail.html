@@ -70,9 +70,16 @@
 										id="txt_namaguru" placeholder="Username ...">
 								</div>
 								<div class="form-group">
-									<label>Password </label> <input type="password"
-										th:field="*{password}" class="form-control form-control-user"
-										id="txt_namaguru" placeholder="Password ...">
+									<label>password : <input name="password" id="password"
+										type="password" th:field="*{password}"
+										class="form-control form-control-user"
+										placeholder="Password ..." onkeyup='check();' />
+									</label> <br> <label>confirm password: <input
+										type="password" class="form-control form-control-user"
+										name="confirm_password" id="confirm_password"
+										onkeyup='check();' placeholder="Confirm Password ..." /> <span
+										id='message'></span>
+									</label>
 								</div>
 
 								<div class="form-group">
@@ -107,7 +114,7 @@
 
 								<div>
 									<button class="btn btn-primary btn-user btn-block"
-										type="submit">Save</button>
+										type="submit" id="btnSubmit">Save</button>
 									<a th:href="@{/admin/appuser}"
 										class="btn btn-secondary btn-user btn-block"> <span
 										class="text">Cancel</span>
@@ -171,8 +178,18 @@
 			$('#opt_guru').prop('disabled', user_role != 'GURU');
 			$('#opt_siswa').prop('disabled', user_role != 'SISWA');
 		}
-
-		/*]]>*/
+		
+		$(function() {
+			$("#btnSubmit").click(function() {
+				var password = $("#password").val();
+				var confirmPassword = $("#confirm_password").val();
+				if (password != confirmPassword) {
+					alert("Passwords do not match.");
+					return false;
+				}
+				return true;
+			});
+		});
 	</script>
 
 </body>
