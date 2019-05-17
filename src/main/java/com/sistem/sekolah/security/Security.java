@@ -22,7 +22,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	//setting auth
+	// setting auth
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/login").permitAll().antMatchers("/admin/**")
@@ -45,7 +45,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(loginUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
 	}
-	
+
 	// password encoder
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
