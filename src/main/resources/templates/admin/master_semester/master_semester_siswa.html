@@ -174,7 +174,7 @@
 				</div>
 
 				<form class="user" th:action="@{/admin/semestersiswa/save}"
-					method="post" th:object="${dataNew}">
+					method="post" th:object="${masterSemesterData}">
 					<div class="form-group blu-margin">
 						<input type="hidden" th:value="${masterSemesterData.id}"
 							th:field="*{masterSemester}"> <select th:field="*{siswa}"

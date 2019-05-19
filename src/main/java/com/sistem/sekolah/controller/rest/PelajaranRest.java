@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistem.sekolah.entity.Guru;
-import com.sistem.sekolah.repository.GuruRepository;
+import com.sistem.sekolah.entity.Pelajaran;
+import com.sistem.sekolah.repository.PelajaranRepository;
 
 @RestController
-public class GuruRest {
+public class PelajaranRest {
 
 	@Autowired
-	private GuruRepository guruRepository;
+	private PelajaranRepository pelajaranRepository;
 
-	@RequestMapping(value = "/rest/guru/list", produces = {
+	@RequestMapping(value = "/rest/pelajaran/list", produces = {
 			MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
-	public ResponseEntity<List<Guru>> listGuru() {
+	public ResponseEntity<List<Pelajaran>> listGuru() {
 		Pageable pageable = PageRequest.of(0, 10);// ini paging
-		Page<Guru> page = guruRepository.findAll(pageable);
-		return new ResponseEntity<List<Guru>>(page.getContent(), HttpStatus.OK);
+		Page<Pelajaran> page = pelajaranRepository.findAll(pageable);
+		return new ResponseEntity<List<Pelajaran>>(page.getContent(), HttpStatus.OK);
 	}
 
 }
