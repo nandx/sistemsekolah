@@ -9,12 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.sistem.sekolah.entity.AppUser;
+
 import com.sistem.sekolah.entity.Guru;
 import com.sistem.sekolah.repository.PelajaranRepository;
 import com.sistem.sekolah.security.UserPrincipal;
 import com.sistem.sekolah.service.AdminGuruService;
-import com.sistem.sekolah.service.AdminPelajaranService;
 
 @Controller
 public class GuruPelajaranCtrl {

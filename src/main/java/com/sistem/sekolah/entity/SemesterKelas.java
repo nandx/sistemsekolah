@@ -1,8 +1,8 @@
 package com.sistem.sekolah.entity;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.sistem.sekolah.constant.SemesterEnum;
@@ -37,19 +36,6 @@ public class SemesterKelas {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "kelas_id")
 	private Kelas kelas;
-	
-	@OneToMany(mappedBy = "SemesterKelas", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Pelajaran> pelajaran;
-
-
-
-	public List<Pelajaran> getPelajaran() {
-		return pelajaran;
-	}
-
-	public void setPelajaran(List<Pelajaran> pelajaran) {
-		this.pelajaran = pelajaran;
-	}
 
 	public Integer getId() {
 		return id;

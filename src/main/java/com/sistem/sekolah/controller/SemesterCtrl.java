@@ -76,9 +76,8 @@ public class SemesterCtrl {
 		SemesterKelasSiswa ssk = new SemesterKelasSiswa();
 		semesterKelasSiswaService.getSemesterKelasSiswa(idSemester);
 		ssk.setMasterSemester(masterSemester);
-		model.addAttribute("masterSemesterData", masterSemester);
+		model.addAttribute("masterSemesterData", ssk);
 		model.addAttribute("Siswa", adminSiswaService.getAll());
-		model.addAttribute("dataNew", semesterKelasSiswaService.getAll());
 
 		model.addAttribute("allMasterSemester", semesterKelasSiswaService.findByMasterSemester(idSemester));
 		return "/admin/master_semester/master_semester_siswa";
