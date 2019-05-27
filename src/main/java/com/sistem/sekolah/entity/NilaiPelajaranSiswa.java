@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "semester_kelas_pelajaran")
-public class SemesterKelasPelajaran {
+@Table(name = "nilai_pelajaran_siswa")
+public class NilaiPelajaranSiswa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +20,8 @@ public class SemesterKelasPelajaran {
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "master_semester_id")
-	private SemesterKelas masterSemester;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pelajaran_id")
-	private Pelajaran pelajaran;
+	@JoinColumn(name = "semester_kelas_pelajaran_id")
+	private SemesterKelasPelajaran semesterKelasPelajaran;
 
 	public Integer getId() {
 		return id;
@@ -35,20 +31,12 @@ public class SemesterKelasPelajaran {
 		this.id = id;
 	}
 
-	public Pelajaran getPelajaran() {
-		return pelajaran;
+	public SemesterKelasPelajaran getSemesterKelasPelajaran() {
+		return semesterKelasPelajaran;
 	}
 
-	public void setPelajaran(Pelajaran pelajaran) {
-		this.pelajaran = pelajaran;
-	}
-
-	public SemesterKelas getMasterSemester() {
-		return masterSemester;
-	}
-
-	public void setMasterSemester(SemesterKelas masterSemester) {
-		this.masterSemester = masterSemester;
+	public void setSemesterKelasPelajaran(SemesterKelasPelajaran semesterKelasPelajaran) {
+		this.semesterKelasPelajaran = semesterKelasPelajaran;
 	}
 
 }

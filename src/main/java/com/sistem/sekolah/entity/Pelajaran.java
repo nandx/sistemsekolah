@@ -1,21 +1,16 @@
 package com.sistem.sekolah.entity;
 
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "pelajaran")
+@Table(name = "pelajaran", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "nama_pelajaran", "tingkat", "jurusan" }) })
 public class Pelajaran {
 
 	@Id
@@ -25,33 +20,12 @@ public class Pelajaran {
 
 	@Column(name = "nama_pelajaran", length = 200)
 	private String namaPelajaran;
-	
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "semester_ID", nullable = false)
-	private SemesterKelas SemesterKelas;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "guru_ID", nullable = false)
-	private Guru guru;
+	@Column(name = "tingkat", length = 2)
+	private Integer tingkat;
 
-
-
-	public SemesterKelas getSemesterKelas() {
-		return SemesterKelas;
-	}
-
-	public void setSemesterKelas(SemesterKelas semesterKelas) {
-		SemesterKelas = semesterKelas;
-	}
-
-	public Guru getGuru() {
-		return guru;
-	}
-
-	public void setGuru(Guru guru) {
-		this.guru = guru;
-	}
+	@Column(name = "jurusan", length = 200)
+	private String jurusan;
 
 	public Integer getId() {
 		return id;
@@ -67,6 +41,22 @@ public class Pelajaran {
 
 	public void setNamaPelajaran(String namaPelajaran) {
 		this.namaPelajaran = namaPelajaran;
+	}
+
+	public Integer getTingkat() {
+		return tingkat;
+	}
+
+	public void setTingkat(Integer tingkat) {
+		this.tingkat = tingkat;
+	}
+
+	public String getJurusan() {
+		return jurusan;
+	}
+
+	public void setJurusan(String jurusan) {
+		this.jurusan = jurusan;
 	}
 
 }

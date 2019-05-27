@@ -19,6 +19,12 @@ public class Kelas {
 	@Column(name = "nama_kelas", length = 200)
 	private String namaKelas;
 
+	@Column(name = "tingkat", length = 2)
+	private Integer tingkat;
+
+	@Column(name = "jurusan", length = 200)
+	private String jurusan;
+
 	public Integer getId() {
 		return id;
 	}
@@ -33,6 +39,22 @@ public class Kelas {
 
 	public void setNamaKelas(String namaKelas) {
 		this.namaKelas = namaKelas;
+	}
+
+	public Integer getTingkat() {
+		return tingkat;
+	}
+
+	public void setTingkat(Integer tingkat) {
+		this.tingkat = tingkat;
+	}
+
+	public String getJurusan() {
+		return jurusan;
+	}
+
+	public void setJurusan(String jurusan) {
+		this.jurusan = jurusan;
 	}
 
 }

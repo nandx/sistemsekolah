@@ -1,8 +1,5 @@
 package com.sistem.sekolah.entity;
 
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,11 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.sistem.sekolah.constant.SemesterEnum;
 
 @Entity
-@Table(name = "semester_kelas")
+@Table(name = "semester_kelas", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "tahun_ajaran", "semester", "kelas_id" }) })
 public class SemesterKelas {
 
 	@Id
