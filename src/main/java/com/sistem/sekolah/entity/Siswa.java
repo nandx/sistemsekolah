@@ -20,6 +20,9 @@ public class Siswa {
 	@Column(name = "id", length = 11, unique = true, nullable = false)
 	private Integer id;
 
+	@Column(name = "nomor_induk", length = 10, nullable = false, unique = true)
+	private String nomorInduk;
+
 	@Column(name = "nama_siswa", length = 200)
 	private String namaSiswa;
 
@@ -49,6 +52,14 @@ public class Siswa {
 
 	public void setNamaSiswa(String namaSiswa) {
 		this.namaSiswa = namaSiswa;
+	}
+
+	public String getNomorInduk() {
+		return nomorInduk;
+	}
+
+	public void setNomorInduk(String nomorInduk) {
+		this.nomorInduk = nomorInduk;
 	}
 
 }

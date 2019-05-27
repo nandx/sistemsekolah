@@ -1,8 +1,5 @@
 package com.sistem.sekolah.entity;
 
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -29,7 +26,6 @@ public class Guru {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "STATUS", length = 20)
 	private Status status;
-
 
 	public Status getStatus() {
 		return status;

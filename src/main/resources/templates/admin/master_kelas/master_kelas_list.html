@@ -78,6 +78,8 @@
 										<tr>
 											<th>ID</th>
 											<th>Nama Kelas</th>
+											<th>Tingkat</th>
+											<th>Jurusan</th>
 											<th>ACTION</th>
 										</tr>
 									</thead>
@@ -85,6 +87,8 @@
 										<tr th:each="kelas : ${list_kelas}">
 											<td th:text="${kelas.id}"></td>
 											<td th:text="${kelas.namaKelas}"></td>
+											<td th:text="${kelas.tingkat}"></td>
+											<td th:text="${kelas.jurusan}"></td>
 											<td><a
 												th:href="${'/admin/kelas/edit?idKelas='+kelas.id}"
 												class="btn btn-primary btn-icon-split btn-sm"> <span
