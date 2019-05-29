@@ -11,5 +11,4 @@ public interface SiswaRepository extends JpaRepository<Siswa, Integer> {
 	public Page<Siswa> findByNamaSiswa(String namaSiswa, Pageable pageable);
 
 	public Siswa findByNomorInduk(String nomorInduk);
-
 }
