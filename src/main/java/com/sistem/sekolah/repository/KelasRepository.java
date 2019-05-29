@@ -10,7 +10,7 @@ import com.sistem.sekolah.entity.Kelas;
 @Repository
 public interface KelasRepository extends JpaRepository<Kelas, Integer> {
 
-	public Page<Kelas> findByNamaKelasAndTingkatAndJurusan(String namaKelas, int tingkat, String jurusan,
+	public Page<Kelas> findByNamaKelasAndTingkatAndJurusan(String namaKelas, Integer tingkat, String jurusan,
 			Pageable pageable);
 
 }
