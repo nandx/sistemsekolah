@@ -15,5 +15,6 @@ public interface SemesterKelasRepository extends JpaRepository<SemesterKelas, In
 	public Page<SemesterKelas> findByKelasAndTahunAjaranAndSemester(Kelas kelas, int tahunAjaran, SemesterEnum semester, Pageable pageable);
 	
 	public Page<SemesterKelas > findByKelas(Kelas kelas, Pageable pageable);
+	public SemesterKelas findByKelas(Kelas kelas);
 
 }

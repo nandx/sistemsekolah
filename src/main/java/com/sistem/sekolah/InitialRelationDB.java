@@ -109,9 +109,9 @@ public class InitialRelationDB {
 				pageable);
 		if (pagekelas.hasContent()) {
 			Kelas kelas = pagekelas.getContent().get(0);
-			SemesterKelas sk = semesterKelasRepository.findByKelasAndTahunAjaranAndSemester(kelas, tahunAjaran,
-					semester);
+			SemesterKelas sk = semesterKelasRepository.findByKelas(kelas);
 			if (sk == null) {
+				System.out.println("INI TRUE");
 				sk = new SemesterKelas();
 				sk.setKelas(kelas);
 				sk.setSemester(SemesterEnum.GENAP);
